@@ -1,5 +1,5 @@
 {
-  "name": "ueather-appndefined",
+  "name": "weather-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -22,8 +22,12 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-styled-components": "^2.1.4",
-    "eslint": "^9",
-    "eslint-config-next": "15.1.6",
+    "eslint": "^9.18.0",
+    "eslint-config-next": "^15.1.6",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.1.0",
     "husky": "^9.1.7",
     "typescript": "^5"
   }
