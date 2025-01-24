@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import GlobalStyle from './styles/GlobalStyle';
 
 export const metadata: Metadata = {
 	title: 'Weather App',
@@ -14,6 +15,7 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body>
+				<GlobalStyle />
 				<div
 					style={{
 						width: '100%',
