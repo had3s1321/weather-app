@@ -1,4 +1,5 @@
 'use client';
+
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
@@ -16,8 +17,6 @@ const GlobalStyle = createGlobalStyle`
   body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    display: grid;
-    place-self: center;
     width: 100vw;
     height: 100vh;
     background: yellow;
