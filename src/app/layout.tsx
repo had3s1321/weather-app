@@ -3,6 +3,7 @@ import Link from 'next/link';
 import StyledComponentsRegistry from '@/lib/registry';
 import GlobalStyle from './styles/GlobalStyle';
 import { ThemeProvider } from '@/lib/contexts/themeContext';
+import ThemeToggler from '@/components/ThemeToggler';
 
 export const metadata: Metadata = {
 	title: 'Weather App',
@@ -36,6 +37,7 @@ export default function RootLayout({
 							<Link href='/Paris' style={{ color: 'black' }}>
 								Paris
 							</Link>
+							<ThemeToggler />
 						</div>
 						{children}
 					</ThemeProvider>

@@ -1,12 +1,23 @@
 'use client';
+
 import { createContext, useState } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
-import { lightTheme, darkTheme } from '../../app/styles/themes';
+import { lightTheme, darkTheme } from '@/app/styles/themes';
 
-export const ThemeContext = createContext({});
+type Theme = 'light' | 'dark';
+
+type ThemeArguments = {
+	theme: Theme;
+	toggleTheme: () => void;
+};
+
+export const ThemeContext = createContext<ThemeArguments>({
+	theme: 'light',
+	toggleTheme: () => {}
+});
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-	const [theme, setTheme] = useState('light');
+	const [theme, setTheme] = useState<Theme>('light');
 
 	const toggleTheme = () => {
 		setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
