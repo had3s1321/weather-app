@@ -4,6 +4,7 @@ import StyledComponentsRegistry from '@/lib/registry';
 import GlobalStyle from './styles/GlobalStyle';
 import { ThemeProvider } from '@/lib/contexts/themeContext';
 import ThemeToggler from '@/components/ThemeToggler';
+import { WeatherProvider } from '@/lib/contexts/weatherContext';
 
 export const metadata: Metadata = {
 	title: 'Weather App',
@@ -20,26 +21,28 @@ export default function RootLayout({
 			<body>
 				<StyledComponentsRegistry>
 					<ThemeProvider>
-						<GlobalStyle />
-						<div
-							style={{
-								width: '100%',
-								height: '80px',
-								backgroundColor: 'blue'
-							}}
-						>
-							<Link href='/' style={{ color: 'black' }}>
-								Home
-							</Link>
-							<Link href='/London' style={{ color: 'black' }}>
-								London
-							</Link>
-							<Link href='/Paris' style={{ color: 'black' }}>
-								Paris
-							</Link>
-							<ThemeToggler />
-						</div>
-						{children}
+						<WeatherProvider>
+							<GlobalStyle />
+							<div
+								style={{
+									width: '100%',
+									height: '80px',
+									backgroundColor: 'blue'
+								}}
+							>
+								<Link href='/' style={{ color: 'black' }}>
+									Home
+								</Link>
+								<Link href='/London' style={{ color: 'black' }}>
+									London
+								</Link>
+								<Link href='/Paris' style={{ color: 'black' }}>
+									Paris
+								</Link>
+								<ThemeToggler />
+							</div>
+							{children}
+						</WeatherProvider>
 					</ThemeProvider>
 				</StyledComponentsRegistry>
 			</body>
