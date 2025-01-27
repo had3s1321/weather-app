@@ -1,15 +1,10 @@
 import Link from 'next/link';
 import ThemeToggler from '@/components/ThemeToggler';
+import { StyledNavigation } from './styles';
 
 const NavBar = () => {
 	return (
-		<nav
-			style={{
-				width: '100%',
-				height: '80px',
-				backgroundColor: 'blue'
-			}}
-		>
+		<StyledNavigation>
 			<Link href='/' style={{ color: 'black' }}>
 				Home
 			</Link>
@@ -20,7 +15,7 @@ const NavBar = () => {
 				Paris
 			</Link>
 			<ThemeToggler />
-		</nav>
+		</StyledNavigation>
 	);
 };
 

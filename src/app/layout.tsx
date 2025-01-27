@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
-import NavBar from '@/components/NavBar/NavBar';
+import MainContainer from '@/components/MainContainer';
 import StyledComponentsRegistry from '@/lib/registry';
 import { ThemeProvider } from '@/lib/contexts/themeContext';
 import { WeatherProvider } from '@/lib/contexts/weatherContext';
 import GlobalStyle from './styles/GlobalStyle';
-import MainContainer from '@/components/UI/MainContainer';
 
 export const metadata: Metadata = {
 	title: 'Weather App',
@@ -23,7 +22,6 @@ export default function RootLayout({
 					<ThemeProvider>
 						<WeatherProvider>
 							<GlobalStyle />
-							<NavBar />
 							<MainContainer>{children}</MainContainer>
 						</WeatherProvider>
 					</ThemeProvider>
