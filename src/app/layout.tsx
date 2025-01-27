@@ -4,6 +4,7 @@ import StyledComponentsRegistry from '@/lib/registry';
 import { ThemeProvider } from '@/lib/contexts/themeContext';
 import { WeatherProvider } from '@/lib/contexts/weatherContext';
 import GlobalStyle from './styles/GlobalStyle';
+import MainContainer from '@/components/UI/MainContainer';
 
 export const metadata: Metadata = {
 	title: 'Weather App',
@@ -23,7 +24,7 @@ export default function RootLayout({
 						<WeatherProvider>
 							<GlobalStyle />
 							<NavBar />
-							<main>{children}</main>
+							<MainContainer>{children}</MainContainer>
 						</WeatherProvider>
 					</ThemeProvider>
 				</StyledComponentsRegistry>
