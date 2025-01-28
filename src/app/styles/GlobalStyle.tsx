@@ -37,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
     font: inherit;
   }
 
-  p:hover, h1, h2 {
+  p:hover, h1:hover, h2:hover {
     cursor: default;
   }
 
