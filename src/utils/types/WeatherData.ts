@@ -3,7 +3,7 @@ export type Weather = {
 	main: string;
 	description: string;
 	icon: string;
-}[];
+};
 
 type DetailedTemperature = {
 	day: number;
@@ -34,7 +34,7 @@ interface HourlyForecast {
 	wind_speed: number;
 	wind_deg: number;
 	wind_gust: number;
-	weather: Weather;
+	weather: Weather[];
 }
 
 interface CurrentForecast extends HourlyForecast {
@@ -60,4 +60,5 @@ export interface APIData {
 	current: CurrentForecast;
 	hourly: HourlyForecast[];
 	daily: DailyForecast[];
+	weather_overview: string;
 }
