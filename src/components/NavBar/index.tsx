@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import ThemeToggler from '@/components/ThemeToggler';
+import ThemeToggler from '@/components/NavBar/ThemeToggler';
 import { StyledNavigation } from './styles';
 
 const NavBar = () => {
