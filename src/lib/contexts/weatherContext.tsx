@@ -2,19 +2,24 @@
 
 import { createContext, useState } from 'react';
 
-export const WeatherContext = createContext({});
+export const WeatherContext = createContext({
+	cities: [],
+	weatherData: {},
+	setCities: {}, // don't know why it worked, need to figure it out
+	setWeatherData: {} // don't know why it worked, need to figure it out
+});
 
 export const WeatherProvider = ({
 	children
 }: {
 	children: React.ReactNode;
 }) => {
-	const [locationData, setLocationData] = useState({});
+	const [cities, setCities] = useState([]);
 	const [weatherData, setWeatherData] = useState({});
 
 	return (
 		<WeatherContext.Provider
-			value={{ locationData, weatherData, setLocationData, setWeatherData }}
+			value={{ cities, weatherData, setCities, setWeatherData }}
 		>
 			{children}
 		</WeatherContext.Provider>
