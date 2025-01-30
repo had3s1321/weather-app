@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import MainContainer from '@/components/MainContainer';
 import StyledComponentsRegistry from '@/lib/registry';
-import GlobalStyle from './styles/GlobalStyle';
 import { ThemeProvider } from '@/lib/contexts/themeContext';
-import ThemeToggler from '@/components/ThemeToggler';
 import { WeatherProvider } from '@/lib/contexts/weatherContext';
+import GlobalStyle from './styles/GlobalStyle';
 
 export const metadata: Metadata = {
 	title: 'Weather App',
@@ -23,25 +22,7 @@ export default function RootLayout({
 					<ThemeProvider>
 						<WeatherProvider>
 							<GlobalStyle />
-							<div
-								style={{
-									width: '100%',
-									height: '80px',
-									backgroundColor: 'blue'
-								}}
-							>
-								<Link href='/' style={{ color: 'black' }}>
-									Home
-								</Link>
-								<Link href='/London' style={{ color: 'black' }}>
-									London
-								</Link>
-								<Link href='/Paris' style={{ color: 'black' }}>
-									Paris
-								</Link>
-								<ThemeToggler />
-							</div>
-							{children}
+							<MainContainer>{children}</MainContainer>
 						</WeatherProvider>
 					</ThemeProvider>
 				</StyledComponentsRegistry>
