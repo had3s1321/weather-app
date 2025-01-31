@@ -1,6 +1,9 @@
-import { useState } from 'react';
+'use client';
 
-const SearchCityForm = () => {
+import { useState } from 'react';
+import { StyledInput } from './styles';
+
+const SearchBar = () => {
 	const [value, setValue] = useState('');
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
@@ -8,7 +11,7 @@ const SearchCityForm = () => {
 
 	return (
 		<form>
-			<input
+			<StyledInput
 				onChange={handleChange}
 				value={value}
 				type='text'
@@ -18,4 +21,4 @@ const SearchCityForm = () => {
 	);
 };
 
-export default SearchCityForm;
+export default SearchBar;

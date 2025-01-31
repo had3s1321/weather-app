@@ -4,11 +4,12 @@ import { useContext } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { WeatherContext } from '@/lib/contexts/weatherContext';
+import { StyledList } from './styles';
 
 const Dropdown = () => {
 	const { cities } = useContext(WeatherContext);
 	return (
-		<ul>
+		<StyledList>
 			<li>
 				<p>Cities</p>
 				<ul>
@@ -21,7 +22,7 @@ const Dropdown = () => {
 					))}
 				</ul>
 			</li>
-		</ul>
+		</StyledList>
 	);
 };
 
