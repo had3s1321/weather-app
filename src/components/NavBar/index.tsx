@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import ThemeToggler from '@/components/NavBar/ThemeToggler';
 import { StyledNavigation } from './styles';
+import SearchBar from './SearchBar';
+import Dropdown from './Dropdown';
 
 const NavBar = () => {
 	return (
@@ -8,12 +10,8 @@ const NavBar = () => {
 			<Link href='/' style={{ color: 'black' }}>
 				Home
 			</Link>
-			<Link href='/London' style={{ color: 'black' }}>
-				London
-			</Link>
-			<Link href='/Paris' style={{ color: 'black' }}>
-				Paris
-			</Link>
+			<SearchBar />
+			<Dropdown />
 			<ThemeToggler />
 		</StyledNavigation>
 	);
