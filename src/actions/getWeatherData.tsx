@@ -2,7 +2,6 @@
 
 import { fetchWeatherData } from '@/utils/fetchWeatherData';
 import { parseWeatherData } from '@/utils/parseWeatherData';
-import { ParsedWeatherData } from '@/utils/types/WeatherData';
 
 export const getWeatherData = async () => {
 	const response = await fetchWeatherData({
