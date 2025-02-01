@@ -2,7 +2,7 @@ export type Weather = {
 	id: number;
 	main: string;
 	description: string;
-	icon: string;
+	icon?: string;
 };
 
 type DetailedTemperature = {
@@ -21,10 +21,13 @@ type DetailedRealFeel = {
 	morn: number;
 };
 
+export type Temperature = number | DetailedTemperature;
+export type RealFeel = number | DetailedRealFeel;
+
 interface HourlyForecast {
 	dt: number;
-	temp: number | DetailedTemperature; //need to be overwritten
-	feels_like: number | DetailedRealFeel; //need to be overwritten
+	temp: Temperature;
+	feels_like: RealFeel;
 	pressure: number;
 	humidity: number;
 	dew_point: number;
@@ -60,5 +63,37 @@ export interface APIData {
 	current: CurrentForecast;
 	hourly: HourlyForecast[];
 	daily: DailyForecast[];
-	weather_overview: string;
+	weather_overview?: string;
+}
+
+export interface ParsedWeatherData {
+	currentTemp: Temperature;
+	currentWeather: Weather;
+	airConditions: {
+		realFeel: RealFeel;
+		wind: number;
+		humidity: number;
+		uvi: number;
+	};
+	hourlyForecast: {
+		time: number;
+		temp: Temperature;
+		weather: Weather;
+	}[];
+
+	dailyForecast: {
+		time: number;
+		temp: {
+			minTemp: number;
+			maxTemp: number;
+		};
+		weather: Weather;
+	}[];
+	weatherOverview?: string;
+	panelData: {
+		feelsLike: RealFeel;
+		maxTemp: number;
+		minTemp: number;
+		uvi: number;
+	};
 }

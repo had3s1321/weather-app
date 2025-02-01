@@ -24,6 +24,6 @@ const iconsArray = [
 export const convertWeatherIcon = (object: Weather) => {
 	return {
 		...object,
-		icon: iconsArray.find((icon) => icon.id === object[0]['icon'])?.icon
+		icon: iconsArray.find((icon) => icon.id === object['icon'])?.icon
 	};
 };

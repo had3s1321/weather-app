@@ -1,7 +1,8 @@
 import { APIData } from '@/utils/types/WeatherData';
 import { convertWeatherIcon } from '@/utils/convertWeatherIcons';
+import { ParsedWeatherData } from '@/utils/types/WeatherData';
 
-export const filterWeatherData = (data: APIData) => {
+export const parseWeatherData = (data: APIData): ParsedWeatherData => {
 	return {
 		currentTemp: data.current.temp,
 		currentWeather: convertWeatherIcon(data.current.weather[0]),
