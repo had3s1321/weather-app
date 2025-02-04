@@ -33,7 +33,7 @@ interface HourlyForecast {
 	dew_point: number;
 	uvi: number;
 	clouds: number;
-	visibility: number; //
+	visibility?: number;
 	wind_speed: number;
 	wind_deg: number;
 	wind_gust: number;
