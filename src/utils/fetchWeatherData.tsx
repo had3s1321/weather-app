@@ -5,12 +5,12 @@ import { APIData } from '@/utils/types/WeatherData';
 export const fetchWeatherData = async ({
 	cache = 'force-cache',
 	headers,
-	url
+	urls
 }: {
 	cache?: RequestCache;
 	headers?: HeadersInit;
-	url: string;
-}): Promise<{ status: number; body: APIData } | never> => {
+	urls: string[];
+}): Promise<{ body: APIData } | never> => {
 	const options: RequestInit = {
 		method: 'GET',
 		headers: {
@@ -20,10 +20,15 @@ export const fetchWeatherData = async ({
 		cache
 	};
 
-	const response = await fetch(url, options);
-	if (!response.ok) {
-		throw new Error('Failed to connect to Weather API');
+	const responses = [];
+	for (const url in urls) {
+		const response = await fetch(url, options);
+		if (!response.ok) {
+			throw new Error('Failed to connect to Weather API');
+		}
+		const body = await response.json();
+		responses.push(body);
 	}
-	const body = await response.json();
-	return { status: response.status, body };
+	const body = Object.assign({}, ...responses);
+	return body;
 };
