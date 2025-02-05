@@ -1,6 +1,6 @@
 import { Icon } from '@iconify-icon/react';
 import { Flex, Text } from '@/components/UI/globals/index';
-import { handleDataType } from '../utils/handleDataType';
+import { handleUnitType } from '@/utils/handleUnitType';
 
 const DataPanelItem = ({ title, icon, value, valueType }) => {
 	return (
@@ -9,7 +9,7 @@ const DataPanelItem = ({ title, icon, value, valueType }) => {
 			<Flex column>
 				<Text size='20px'>{title}</Text>
 				<Text size='24px' weight='700'>
-					{handleDataType(value, valueType)}
+					{handleUnitType(value, valueType)}
 				</Text>
 			</Flex>
 		</Flex>
