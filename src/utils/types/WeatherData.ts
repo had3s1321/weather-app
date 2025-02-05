@@ -100,3 +100,10 @@ export interface ParsedWeatherData {
 		uvi: number;
 	};
 }
+
+export interface PanelData {
+	title: string;
+	icon: string;
+	value: number;
+	valueType?: string;
+}
