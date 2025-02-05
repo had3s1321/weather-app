@@ -1,4 +1,4 @@
-export type Weather = {
+type Weather = {
 	id: number;
 	main: string;
 	description: string;
@@ -21,19 +21,14 @@ type DetailedRealFeel = {
 	morn: number;
 };
 
-export type Temperature = number | DetailedTemperature;
-export type RealFeel = number | DetailedRealFeel;
-
 interface HourlyForecast {
 	dt: number;
-	temp: Temperature;
-	feels_like: RealFeel;
 	pressure: number;
 	humidity: number;
 	dew_point: number;
 	uvi: number;
 	clouds: number;
-	visibility: number; //
+	visibility?: number;
 	wind_speed: number;
 	wind_deg: number;
 	wind_gust: number;
@@ -51,6 +46,14 @@ interface DailyForecast extends CurrentForecast {
 	moon_phase: number;
 	pop: number;
 	summary: string;
+}
+
+interface CompleteHourlyForecast extends HourlyForecast {
+	temp: number;
+	feels_like: number;
+}
+
+interface CompleteDailyForecast extends DailyForecast {
 	temp: DetailedTemperature;
 	feels_like: DetailedRealFeel;
 }
@@ -61,23 +64,23 @@ export interface APIData {
 	timezone: string;
 	timezone_offset: number;
 	current: CurrentForecast;
-	hourly: HourlyForecast[];
-	daily: DailyForecast[];
+	hourly: CompleteHourlyForecast[];
+	daily: CompleteDailyForecast[];
 	weather_overview?: string;
 }
 
 export interface ParsedWeatherData {
-	currentTemp: Temperature;
+	currentTemp: number;
 	currentWeather: Weather;
 	airConditions: {
-		realFeel: RealFeel;
+		realFeel: number;
 		wind: number;
 		humidity: number;
 		uvi: number;
 	};
 	hourlyForecast: {
 		time: number;
-		temp: Temperature;
+		temp: number;
 		weather: Weather;
 	}[];
 
@@ -91,7 +94,7 @@ export interface ParsedWeatherData {
 	}[];
 	weatherOverview?: string;
 	panelData: {
-		feelsLike: RealFeel;
+		feelsLike: number;
 		maxTemp: number;
 		minTemp: number;
 		uvi: number;
