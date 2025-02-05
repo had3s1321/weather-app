@@ -1,4 +1,4 @@
-import DataFetcher from '@/components/UI/DataFetcher/DataFetcher';
+import DataFetcher from '@/components/UI/DataFetcher/index';
 
 export default function Home() {
 	return (
