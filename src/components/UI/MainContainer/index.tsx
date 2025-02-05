@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledMainContainer } from '@/components/MainContainer/styles';
+import { StyledMainContainer } from '@/components/UI/MainContainer/styles';
 import NavBar from '@/components/NavBar/index';
 
 const MainContainer = ({ children }: { children: React.ReactNode }) => {

@@ -103,11 +103,55 @@ export const parseWeatherData = (data: APIData): ParsedWeatherData => {
 			}
 		],
 		weatherOverview: data.weather_overview,
-		panelData: {
-			feelsLike: data.current.feels_like,
-			maxTemp: data.daily[0].temp.max,
-			minTemp: data.daily[0].temp.min,
-			uvi: data.current.uvi
-		}
+		homePanelData: [
+			{
+				title: 'Real Feel:',
+				icon: 'meteocons:thermometer-celsius-fill',
+				value: data.current.feels_like,
+				valueType: 'temperature'
+			},
+			{
+				title: 'UV Index:',
+				icon: 'meteocons:uv-index-fill',
+				value: data.current.uvi
+			},
+			{
+				title: 'Min Temp:',
+				icon: 'meteocons:thermometer-colder',
+				value: data.daily[0].temp.max,
+				valueType: 'temperature'
+			},
+			{
+				title: 'Max Temp:',
+				icon: 'meteocons:thermometer-warmer',
+				value: data.daily[0].temp.min,
+				valueType: 'temperature'
+			}
+		],
+		cityPanelData: [
+			{
+				title: 'Real Feel:',
+				icon: 'meteocons:thermometer-celsius-fill',
+				value: data.current.feels_like,
+				valueType: 'temperature'
+			},
+			{
+				title: 'Humidity:',
+				icon: 'meteocons:humidity-fill',
+				value: data.current.humidity,
+				valueType: 'percentage'
+			},
+			{
+				title: 'Wind:',
+				icon: 'meteocons:dust-wind-fill',
+				value: data.current.wind_speed,
+				valueType: 'speed'
+			},
+			{
+				title: 'UV Index:',
+				icon: 'meteocons:uv-index-fill',
+				value: data.current.uvi
+			}
+		]
 	};
 };

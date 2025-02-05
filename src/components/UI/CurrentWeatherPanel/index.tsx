@@ -1,15 +1,12 @@
 import { Icon } from '@iconify-icon/react';
 import { Card, Flex, Title, Text } from '@/components/UI/globals/index';
 import { handleUnitType } from '@/utils/handleUnitType';
+import { Weather } from '@/utils/types/WeatherData';
 
 interface CurrentWeatherPanelProps {
 	currentLocation: string;
 	currentTemp: number;
-	currentWeather: {
-		main: number;
-		description: string;
-		icon: string;
-	};
+	currentWeather: Weather;
 	padding?: boolean;
 }
 

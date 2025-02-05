@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import MainContainer from '@/components/MainContainer';
+import MainContainer from '@/components/UI/MainContainer/index';
 import StyledComponentsRegistry from '@/lib/registry';
 import { ThemeProvider } from '@/lib/contexts/themeContext';
 import { WeatherProvider } from '@/lib/contexts/weatherContext';

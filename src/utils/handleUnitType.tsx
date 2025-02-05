@@ -7,6 +7,6 @@ export const handleUnitType = (value: number, valueType: string) => {
 		case 'speed':
 			return `${value} km/h`;
 		default:
-			return 'N/A';
+			return value;
 	}
 };
