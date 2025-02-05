@@ -5,7 +5,7 @@ import { styled, css } from 'styled-components';
 interface CardProps {
 	width?: string;
 	height?: string;
-	outer?: string;
+	outer?: boolean;
 	marginBottom?: string;
 	image?: boolean;
 	borderless?: boolean;
@@ -14,7 +14,7 @@ interface CardProps {
 export const Card = styled.div<CardProps>`
 	width: ${(props) => props.width};
 	height: ${(props) => props.height};
-	padding: ${(props) => props.outer || '28px'};
+	padding: ${(props) => (props.outer ? '0px' : '28px')};
 	margin-bottom: ${(props) => props.marginBottom};
 	${(props) =>
 		props.image &&
