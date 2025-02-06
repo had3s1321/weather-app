@@ -28,8 +28,8 @@ export default function Home() {
 								currentWeather={data.currentWeather}
 							/>
 							<Flex $column $justify='space-between' $height='60%'>
-								{data.weatherOverview.split('. ').map((sentence, index) => (
-									<Text key={index}>{sentence}</Text>
+								{data.weatherOverview.split('. ').map((sentence) => (
+									<Text key={sentence}>{sentence}</Text>
 								))}
 							</Flex>
 						</Flex>
