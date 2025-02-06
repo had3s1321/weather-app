@@ -18,24 +18,24 @@ const CurrentWeatherPanel = ({
 }: CurrentWeatherPanelProps) => {
 	return (
 		<Card
-			outer={padding}
-			borderless
-			height='calc(35% - 16px)'
-			marginBottom='24px'
+			$borderless
+			$marginBottom='24px'
+			$height='calc(35% - 16px)'
+			$outer={padding}
 		>
-			<Flex height='100%' justify='space-between'>
-				<Flex column justify='space-between'>
-					<Flex column>
+			<Flex $height='100%' $justify='space-between'>
+				<Flex $column $justify='space-between'>
+					<Flex $column>
 						<Title>{currentLocation}</Title>
-						<Text size='12px'>
+						<Text $size='12px'>
 							{main} - {description}
 						</Text>
 					</Flex>
-					<Text size='56px' weight='700'>
+					<Text $size='56px' $weight='700'>
 						{handleUnitType(currentTemp, 'temperature')}
 					</Text>
 				</Flex>
-				<Flex justify='center' align='center'>
+				<Flex $justify='center' $align='center'>
 					<Icon icon={icon} width='254' height='254' />
 				</Flex>
 			</Flex>

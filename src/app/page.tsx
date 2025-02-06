@@ -8,9 +8,9 @@ export default function Home() {
 	return (
 		<DataFetcher>
 			{(data) => (
-				<Flex gap='24px' height='100%'>
-					<Flex gap='24px' column width='60%' height='100%'>
-						<Card borderless image height='calc(70% - 12px)' width='100%'>
+				<Flex $gap='24px' $height='100%'>
+					<Flex $gap='24px' $column $width='60%' $height='100%'>
+						<Card $borderless $image $height='calc(70% - 12px)' $width='100%'>
 							<Image
 								src='/placeholderImg.jpg'
 								alt='Unsplash image'
@@ -20,14 +20,14 @@ export default function Home() {
 						</Card>
 						<DataPanel title="Today's Weather" panelData={data.homePanelData} />
 					</Flex>
-					<Card width='40%'>
-						<Flex column justify='space-between' gap='24px' height='100%'>
+					<Card $width='40%'>
+						<Flex $column $justify='space-between' $gap='24px' $height='100%'>
 							<CurrentWeatherPanel
 								currentLocation='Placeholder Location'
 								currentTemp={data.currentTemp}
 								currentWeather={data.currentWeather}
 							/>
-							<Flex column justify='space-between' height='60%'>
+							<Flex $column $justify='space-between' $height='60%'>
 								{data.weatherOverview.split('. ').map((sentence, index) => (
 									<Text key={index}>{sentence}</Text>
 								))}
