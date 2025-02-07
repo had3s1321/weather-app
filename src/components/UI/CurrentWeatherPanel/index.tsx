@@ -1,4 +1,4 @@
-import { Icon } from '@iconify-icon/react';
+import { Icon } from '@iconify/react';
 import { Card, Flex, Title, Text } from '@/components/UI/globals/index';
 import { handleUnitType } from '@/utils/handleUnitType';
 import { Weather } from '@/utils/types/WeatherData';

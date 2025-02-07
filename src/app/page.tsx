@@ -14,8 +14,8 @@ export default function Home() {
 							<Image
 								src='/placeholderImg.jpg'
 								alt='Unsplash image'
-								width='100'
-								height='100'
+								width={100}
+								height={100}
 							/>
 						</Card>
 						<DataPanel title="Today's Weather" panelData={data.homePanelData} />
