@@ -11,13 +11,13 @@ interface DataPanelProps {
 
 const DataPanel = ({ title, hasDetailPage, panelData }: DataPanelProps) => {
 	return (
-		<Card height='calc(30% - 12px)'>
-			<Flex justify='space-between' height='30%'>
-				<Text weight='700'>{title}</Text>
+		<Card $height='calc(30% - 12px)'>
+			<Flex $justify='space-between' $height='30%'>
+				<Text $weight='700'>{title}</Text>
 				{hasDetailPage && <ModalToggler />}
 			</Flex>
-			<Flex justify='space-between' width='65%' height='70%'>
-				<Flex column justify='space-between'>
+			<Flex $justify='space-between' $width='65%' $height='70%'>
+				<Flex $column $justify='space-between'>
 					{panelData.map((item, index) => {
 						if ((index + 1) % 2)
 							return (
@@ -31,7 +31,7 @@ const DataPanel = ({ title, hasDetailPage, panelData }: DataPanelProps) => {
 							);
 					})}
 				</Flex>
-				<Flex column justify='space-between'>
+				<Flex $column $justify='space-between'>
 					{panelData.map((item, index) => {
 						if (!((index + 1) % 2))
 							return (

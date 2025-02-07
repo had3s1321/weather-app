@@ -12,6 +12,7 @@ const SearchBar = () => {
 	return (
 		<form>
 			<StyledInput
+				$width='200px'
 				onChange={handleChange}
 				value={value}
 				type='text'

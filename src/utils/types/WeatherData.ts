@@ -1,8 +1,8 @@
-type Weather = {
+export type Weather = {
 	id: number;
 	main: string;
 	description: string;
-	icon?: string;
+	icon: string;
 };
 
 type DetailedTemperature = {
@@ -19,6 +19,13 @@ type DetailedRealFeel = {
 	night: number;
 	eve: number;
 	morn: number;
+};
+
+type PanelItem = {
+	title: string;
+	icon: string;
+	value: number;
+	valueType?: string;
 };
 
 interface HourlyForecast {
@@ -38,9 +45,11 @@ interface HourlyForecast {
 interface CurrentForecast extends HourlyForecast {
 	sunrise: number;
 	sunset: number;
+	feels_like: number;
+	temp: number;
 }
 
-interface DailyForecast extends CurrentForecast {
+interface DailyForecast extends Omit<CurrentForecast, 'feels_like' | 'temp'> {
 	moonrise: number;
 	moonset: number;
 	moon_phase: number;
@@ -66,7 +75,7 @@ export interface APIData {
 	current: CurrentForecast;
 	hourly: CompleteHourlyForecast[];
 	daily: CompleteDailyForecast[];
-	weather_overview?: string;
+	weather_overview: string;
 }
 
 export interface ParsedWeatherData {
@@ -83,7 +92,6 @@ export interface ParsedWeatherData {
 		temp: number;
 		weather: Weather;
 	}[];
-
 	dailyForecast: {
 		time: number;
 		temp: {
@@ -92,13 +100,9 @@ export interface ParsedWeatherData {
 		};
 		weather: Weather;
 	}[];
-	weatherOverview?: string;
-	panelData: {
-		feelsLike: number;
-		maxTemp: number;
-		minTemp: number;
-		uvi: number;
-	};
+	weatherOverview: string;
+	homePanelData: PanelItem[];
+	cityPanelData: PanelItem[];
 }
 
 export interface PanelData {

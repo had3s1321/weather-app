@@ -1516,15 +1516,7 @@ export const mockData = {
 			rain: 2.85,
 			uvi: 3
 		}
-	]
-};
-
-export const mockDetailsData = {
-	lat: 48.3984,
-	lon: 9.9916,
-	tz: '+02:00',
-	date: '2024-10-24',
-	units: 'standard',
+	],
 	weather_overview:
 		"Currently, the weather is overcast with a temperature of 285K and it feels like 284K. The air pressure is at 1027 hPa with a humidity of 93%. The wind speed is 1 meter per second with a wind gust of 2 meters per second coming from the southeast (152°). The visibility is at 10000 meters. The UV index is at 0 and the sky is covered with overcast clouds. It's a fairly mild and humid day with calm winds. So, if you're heading out, you might want to grab an umbrella just in case, and don't forget to dress warmly."
 };

@@ -46,8 +46,12 @@ export const StyledList = styled.ul`
 	}
 `;
 
-export const StyledInput = styled.input`
-	width: ${(props) => props.width};
+interface StyledInputProps {
+	$width: string;
+}
+
+export const StyledInput = styled.input<StyledInputProps>`
+	width: ${(props) => props.$width};
 	display: flex;
 	height: 24px;
 	align-items: center;

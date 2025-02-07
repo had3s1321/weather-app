@@ -12,7 +12,7 @@ const DataFetcher = async ({
 }) => {
 	// const data = await getWeatherData();
 	const data = parseWeatherData(mockData);
-	return <div>{children(data)}</div>;
+	return <>{children(data)}</>;
 };
 
 export default DataFetcher;

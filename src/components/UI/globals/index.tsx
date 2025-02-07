@@ -3,21 +3,21 @@
 import { styled, css } from 'styled-components';
 
 interface CardProps {
-	width?: string;
-	height?: string;
-	outer?: boolean;
-	marginBottom?: string;
-	image?: boolean;
-	borderless?: boolean;
+	$width?: string;
+	$height?: string;
+	$outer?: boolean;
+	$marginBottom?: string;
+	$image?: boolean;
+	$borderless?: boolean;
 }
 
 export const Card = styled.div<CardProps>`
-	width: ${(props) => props.width};
-	height: ${(props) => props.height};
-	padding: ${(props) => (props.outer ? '0px' : '28px')};
-	margin-bottom: ${(props) => props.marginBottom};
+	width: ${(props) => props.$width};
+	height: ${(props) => props.$height};
+	padding: ${(props) => (props.$outer ? '0px' : '28px')};
+	margin-bottom: ${(props) => props.$marginBottom};
 	${(props) =>
-		props.image &&
+		props.$image &&
 		css`
 			position: relative;
 			overflow: hidden;
@@ -30,49 +30,49 @@ export const Card = styled.div<CardProps>`
 				object-fit: cover;
 			}
 		`}
-	border: ${(props) => props.borderless && 'none'};
+	border: ${(props) => props.$borderless && 'none'};
 	${(props) =>
-		!props.borderless &&
+		!props.$borderless &&
 		css`
 			box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 		`};
 `;
 
 interface FlexProps {
-	align?: 'stretch' | 'center' | 'start' | 'end';
-	justify?:
+	$align?: 'stretch' | 'center' | 'start' | 'end';
+	$justify?:
 		| 'start'
 		| 'center'
 		| 'space-between'
 		| 'space-around'
 		| 'space-evenly';
-	column?: boolean;
-	gap?: string;
-	delimiter?: boolean;
-	height?: string;
-	width?: string;
-	maxWidth?: string;
+	$column?: boolean;
+	$gap?: string;
+	$delimiter?: boolean;
+	$height?: string;
+	$width?: string;
+	$maxWidth?: string;
 }
 
 export const Flex = styled.div<FlexProps>`
 	display: flex;
-	align-items: ${(props) => props.align};
-	justify-content: ${(props) => props.justify};
-	flex-direction: ${(props) => (props.column ? 'column' : 'row')};
-	gap: ${(props) => props.gap};
-	position: ${(props) => (props.delimiter ? 'relative' : 'static')};
-	height: ${(props) => props.height};
-	width: ${(props) => props.width};
-	max-width: ${(props) => props.maxWidth};
+	align-items: ${(props) => props.$align};
+	justify-content: ${(props) => props.$justify};
+	flex-direction: ${(props) => (props.$column ? 'column' : 'row')};
+	gap: ${(props) => props.$gap};
+	position: ${(props) => (props.$delimiter ? 'relative' : 'static')};
+	height: ${(props) => props.$height};
+	width: ${(props) => props.$width};
+	max-width: ${(props) => props.$maxWidth};
 	${(props) =>
-		props.delimiter &&
+		props.$delimiter &&
 		css<FlexProps>`
 			&:not(:first-child)::before {
 				content: '';
 				position: absolute;
 				margin: auto;
 				${(props) =>
-					props.column
+					props.$column
 						? css`
 								top: 0;
 								bottom: 0;
@@ -94,37 +94,37 @@ export const Flex = styled.div<FlexProps>`
 `;
 
 interface TextProps {
-	size?: string;
-	weight?: string;
-	align?: 'start' | 'end' | 'center' | 'justify';
-	width?: string;
-	height?: string;
-	isClickable?: boolean;
-	marginBlock?: string;
+	$size?: string;
+	$weight?: string;
+	$align?: 'start' | 'end' | 'center' | 'justify';
+	$width?: string;
+	$height?: string;
+	$isClickable?: boolean;
+	$marginBlock?: string;
 }
 
 export const Text = styled.p<TextProps>`
-	font-size: ${(props) => props.size};
-	font-weight: ${(props) => props.weight};
-	text-align: ${(props) => props.align};
-	width: ${(props) => props.width};
-	height: ${(props) => props.height};
+	font-size: ${(props) => props.$size};
+	font-weight: ${(props) => props.$weight};
+	text-align: ${(props) => props.$align};
+	width: ${(props) => props.$width};
+	height: ${(props) => props.$height};
 	${(props) =>
-		props.isClickable &&
+		props.$isClickable &&
 		css`
 			&:hover {
 				cursor: pointer !important;
 			}
 		`}
-	margin-block: ${(props) => props.marginBlock};
+	margin-block: ${(props) => props.$marginBlock};
 `;
 
 interface SpanProps {
-	weight?: string;
+	$weight?: string;
 }
 
 export const Span = styled.span<SpanProps>`
-	font-weight: ${(props) => props.weight};
+	font-weight: ${(props) => props.$weight};
 `;
 
 export const Title = styled.h1`
