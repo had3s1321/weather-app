@@ -87,19 +87,8 @@ export interface ParsedWeatherData {
 		humidity: number;
 		uvi: number;
 	};
-	hourlyForecast: {
-		time: number;
-		temp: number;
-		weather: Weather;
-	}[];
-	dailyForecast: {
-		time: number;
-		temp: {
-			minTemp: number;
-			maxTemp: number;
-		};
-		weather: Weather;
-	}[];
+	hourlyForecast: ParsedHourlyForecast[];
+	dailyForecast: ParsedDailyForecast[];
 	weatherOverview: string;
 	homePanelData: PanelItem[];
 	cityPanelData: PanelItem[];
@@ -110,4 +99,19 @@ export interface PanelData {
 	icon: string;
 	value: number;
 	valueType?: string;
+}
+
+export interface ParsedHourlyForecast {
+	time: number;
+	temp: number;
+	weather: Weather;
+}
+
+export interface ParsedDailyForecast {
+	time: number;
+	temp: {
+		minTemp: number;
+		maxTemp: number;
+	};
+	weather: Weather;
 }
