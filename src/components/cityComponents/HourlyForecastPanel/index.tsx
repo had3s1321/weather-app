@@ -8,7 +8,7 @@ interface HourlyPanelProps {
 	hourlyForecast: ParsedHourlyForecast[];
 }
 
-const HourlyPanel = ({ hourlyForecast }: HourlyPanelProps) => {
+const HourlyForecastPanel = ({ hourlyForecast }: HourlyPanelProps) => {
 	return (
 		<Card $height='calc(35% - 16px)' $marginBottom='24px'>
 			<Flex $column $justify='space-around' $height='100%'>
@@ -33,4 +33,4 @@ const HourlyPanel = ({ hourlyForecast }: HourlyPanelProps) => {
 	);
 };
 
-export default HourlyPanel;
+export default HourlyForecastPanel;
