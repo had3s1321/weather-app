@@ -10,7 +10,7 @@ const ModalToggler = () => {
 		setIsModalOpen(!isModalOpen);
 	};
 	return (
-		<Text $size='12px' isClickable onClick={toggleModal}>
+		<Text $size='12px' $isClickable onClick={toggleModal}>
 			Read more
 		</Text>
 	);
