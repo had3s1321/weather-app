@@ -3,6 +3,7 @@ import ThemeToggler from '@/components/NavBar/ThemeToggler';
 import { StyledNavigation } from './styles';
 import SearchBar from './SearchBar';
 import Dropdown from './Dropdown';
+import CurrentLocation from './CurrentLocation';
 
 const NavBar = () => {
 	return (
@@ -11,6 +12,7 @@ const NavBar = () => {
 				Home
 			</Link>
 			<SearchBar />
+			<CurrentLocation />
 			<Dropdown />
 			<ThemeToggler />
 		</StyledNavigation>
