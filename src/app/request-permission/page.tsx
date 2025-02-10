@@ -1,3 +1,5 @@
+import InfoCard from '@/components/requestPermissionComponents/InfoCard';
+
 export default async function RequestPermission() {
-	return <div>Requesting Permission</div>;
+	return <InfoCard />;
 }
