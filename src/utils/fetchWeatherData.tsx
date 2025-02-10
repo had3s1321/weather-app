@@ -10,7 +10,7 @@ export const fetchWeatherData = async ({
 	cache?: RequestCache;
 	headers?: HeadersInit;
 	urls: string[];
-}): Promise<{ body: APIData } | never> => {
+}): Promise<APIData | never> => {
 	const options: RequestInit = {
 		method: 'GET',
 		headers: {
@@ -21,7 +21,7 @@ export const fetchWeatherData = async ({
 	};
 
 	const responses = [];
-	for (const url in urls) {
+	for (const url of urls) {
 		const response = await fetch(url, options);
 		if (!response.ok) {
 			throw new Error('Failed to connect to Weather API');

@@ -10,8 +10,7 @@ const InfoCard = () => {
 		if (Cookies.get('client-location')) return;
 		getCurrentCoords((coords) => {
 			Cookies.set('client-location', JSON.stringify(coords), {
-				secure: true,
-				sameSite: 'strict'
+				secure: true
 			});
 		});
 	}, []);
