@@ -9,9 +9,11 @@ const InfoCard = () => {
 	useEffect(() => {
 		if (Cookies.get('client-location')) return;
 		getCurrentCoords((coords) => {
-			Cookies.set('client-location', JSON.stringify(coords));
+			Cookies.set('client-location', JSON.stringify(coords), {
+				secure: true,
+				sameSite: 'strict'
+			});
 		});
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (
