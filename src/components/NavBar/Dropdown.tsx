@@ -1,13 +1,13 @@
 'use client';
 
-import { useContext } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { WeatherContext } from '@/lib/contexts/weatherContext';
 import { StyledList } from './styles';
 
 const Dropdown = () => {
-	const { cities } = useContext(WeatherContext);
+	const [cities, setCities] = useState<string[]>([]);
+
 	return (
 		<StyledList>
 			<li>
@@ -17,6 +17,11 @@ const Dropdown = () => {
 						<li key={city}>
 							<Link href={`/city/${city}`}>
 								<Image src='' alt='' /> {city}
+								<button
+									onClick={() =>
+										setCities((prev) => prev.filter((el) => el !== city))
+									}
+								></button>
 							</Link>
 						</li>
 					))}

@@ -1,4 +1,7 @@
-export const handleUnitType = (value: number, valueType: string) => {
+export const handleUnitType = (
+	value: number,
+	valueType: string | undefined
+) => {
 	switch (valueType) {
 		case 'temperature':
 			return `${Math.round(value)}°C`;

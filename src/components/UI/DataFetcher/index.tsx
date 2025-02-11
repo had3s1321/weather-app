@@ -1,7 +1,5 @@
-// import { getWeatherData } from '@/actions/getWeatherData';
-
-import { mockData } from '@/lib/mockData';
-import { parseWeatherData } from '@/utils/parseWeatherData';
+import { getWeatherData } from '@/actions/getWeatherData';
+import { getCoordsFromCookie } from '@/actions/getCoordsFromCookie';
 import { ParsedWeatherData } from '@/utils/types/WeatherData';
 
 const DataFetcher = async ({
@@ -10,8 +8,8 @@ const DataFetcher = async ({
 	// eslint-disable-next-line no-unused-vars
 	children: (arg: ParsedWeatherData) => React.ReactNode;
 }) => {
-	// const data = await getWeatherData();
-	const data = parseWeatherData(mockData);
+	const { lat, lon } = await getCoordsFromCookie();
+	const data = await getWeatherData(lat, lon);
 	return <>{children(data)}</>;
 };
 
