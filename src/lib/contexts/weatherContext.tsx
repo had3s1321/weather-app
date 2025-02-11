@@ -1,6 +1,7 @@
 'use client';
 
-import { createContext, useState } from 'react';
+import { createContext } from 'react';
+import useLocalStorage from '@/hooks/useLocalStorage';
 
 interface WeatherContextInterface {
 	currentLocation: string;
@@ -18,7 +19,10 @@ export const WeatherProvider = ({
 }: {
 	children: React.ReactNode;
 }) => {
-	const [currentLocation, setCurrentLocation] = useState<string>('');
+	const [currentLocation, setCurrentLocation] = useLocalStorage(
+		'WEATHER_STORAGE',
+		[]
+	);
 
 	return (
 		<WeatherContext.Provider value={{ currentLocation, setCurrentLocation }}>
