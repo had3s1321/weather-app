@@ -1,10 +1,11 @@
 'use server';
 
+import { decryptData } from '@/utils/textEncryption';
 import { cookies } from 'next/headers';
 
 export const getCoordsFromCookie = async () => {
 	const cookiesStore = await cookies();
 	const coords = cookiesStore.get('client-location');
-	if (coords) return JSON.parse(coords.value);
-	throw new Error('Cookie not found');
+	if (coords) return decryptData(coords.value);
+	else throw new Error('Cookie not found');
 };
