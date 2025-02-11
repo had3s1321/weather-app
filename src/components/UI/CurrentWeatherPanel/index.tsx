@@ -1,21 +1,25 @@
+'use client';
+
+import { useContext } from 'react';
 import { Icon } from '@iconify/react';
 import { Card, Flex, Title, Text } from '@/components/UI/globals/index';
 import { handleUnitType } from '@/utils/handleUnitType';
 import { Weather } from '@/utils/types/WeatherData';
+import { WeatherContext } from '@/lib/contexts/weatherContext';
 
 interface CurrentWeatherPanelProps {
-	currentLocation: string;
 	currentTemp: number;
 	currentWeather: Weather;
 	padding?: boolean;
 }
 
 const CurrentWeatherPanel = ({
-	currentLocation,
 	currentTemp,
 	currentWeather: { main, description, icon },
 	padding
 }: CurrentWeatherPanelProps) => {
+	const { currentLocation } = useContext(WeatherContext);
+
 	return (
 		<Card
 			$borderless

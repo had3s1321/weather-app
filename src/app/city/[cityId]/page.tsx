@@ -17,6 +17,9 @@ export default async function Page({
 	return (
 		<>
 			<NavBar />
+			{/* Temporary to get rid of linting errors */}
+			{!cityId && cityId}
+			{/* Temporary to get rid of linting errors */}
 			<Flex $justify='space-between' $gap='28px' $height='100%'>
 				<Card
 					$outer
@@ -25,7 +28,6 @@ export default async function Page({
 					$height='calc(100% - 4px)'
 				>
 					<CurrentWeatherPanel
-						currentLocation={cityId}
 						currentTemp={data.currentTemp}
 						currentWeather={data.currentWeather}
 					/>

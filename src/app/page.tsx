@@ -29,7 +29,6 @@ export default function Home() {
 						<Card $width='40%'>
 							<Flex $column $justify='space-between' $gap='24px' $height='100%'>
 								<CurrentWeatherPanel
-									currentLocation='Placeholder Location'
 									currentTemp={data.currentTemp}
 									currentWeather={data.currentWeather}
 								/>

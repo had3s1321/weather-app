@@ -2,11 +2,15 @@
 
 import { createContext, useState } from 'react';
 
-export const WeatherContext = createContext({
-	cities: [],
-	weatherData: {},
-	setCities: {}, // don't know why it worked, need to figure it out
-	setWeatherData: {} // don't know why it worked, need to figure it out
+interface WeatherContextInterface {
+	currentLocation: string;
+
+	setCurrentLocation: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export const WeatherContext = createContext<WeatherContextInterface>({
+	currentLocation: '',
+	setCurrentLocation: () => {}
 });
 
 export const WeatherProvider = ({
@@ -14,13 +18,10 @@ export const WeatherProvider = ({
 }: {
 	children: React.ReactNode;
 }) => {
-	const [cities, setCities] = useState([]);
-	const [weatherData, setWeatherData] = useState({});
+	const [currentLocation, setCurrentLocation] = useState<string>('');
 
 	return (
-		<WeatherContext.Provider
-			value={{ cities, weatherData, setCities, setWeatherData }}
-		>
+		<WeatherContext.Provider value={{ currentLocation, setCurrentLocation }}>
 			{children}
 		</WeatherContext.Provider>
 	);

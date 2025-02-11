@@ -1,19 +1,24 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import Link from 'next/link';
 import Cookies from 'js-cookie';
 import { getCurrentCoords } from '@/utils/getCurrentCoords';
 import { encryptData } from '@/utils/textEncryption';
+import { WeatherContext } from '@/lib/contexts/weatherContext';
+import { fetchCityName } from '@/utils/fetchLocationData';
 
 const InfoCard = () => {
+	const { setCurrentLocation } = useContext(WeatherContext);
+
 	useEffect(() => {
 		if (Cookies.get('client-location')) return;
 		getCurrentCoords((coords) => {
+			fetchCityName(coords).then((response) => setCurrentLocation(response));
 			encryptData(coords).then((response) => {
 				Cookies.set('client-location', response, {
 					secure: true,
-					expires: 7
+					expires: 1
 				});
 			});
 		});
