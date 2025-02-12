@@ -5,13 +5,16 @@ import useLocalStorage from '@/hooks/useLocalStorage';
 
 interface WeatherContextInterface {
 	currentLocation: string;
-
+	cities: string[];
 	setCurrentLocation: React.Dispatch<React.SetStateAction<string>>;
+	setCities: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 export const WeatherContext = createContext<WeatherContextInterface>({
 	currentLocation: '',
-	setCurrentLocation: () => {}
+	cities: [],
+	setCurrentLocation: () => {},
+	setCities: () => {}
 });
 
 export const WeatherProvider = ({
@@ -20,12 +23,15 @@ export const WeatherProvider = ({
 	children: React.ReactNode;
 }) => {
 	const [currentLocation, setCurrentLocation] = useLocalStorage(
-		'WEATHER_STORAGE',
+		'CURRENT_LOCATION_STORAGE',
 		[]
 	);
+	const [cities, setCities] = useLocalStorage('CITIES_STORAGE', []);
 
 	return (
-		<WeatherContext.Provider value={{ currentLocation, setCurrentLocation }}>
+		<WeatherContext.Provider
+			value={{ currentLocation, cities, setCurrentLocation, setCities }}
+		>
 			{children}
 		</WeatherContext.Provider>
 	);
