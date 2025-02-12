@@ -10,6 +10,7 @@ export const fetchCityName = async ({ lat, lon }: Coords) => {
 		throw new Error('Failed to connect to Weather API');
 	}
 	const data = await response.json();
+	if (!data[0]) throw new Error('Enter a valid city name!');
 	return `${data[0].name}, ${data[0].country}`;
 };
 
@@ -21,6 +22,7 @@ export const fetchCityCoords = async (query: string) => {
 		throw new Error('Failed to connect to Weather API');
 	}
 	const data = await response.json();
-	const { lat, lon } = data[0];
-	return { lat, lon };
+	if (!data[0]) throw new Error('Coordinates not valid!');
+	const { lat, lon, name } = data[0];
+	return { lat, lon, name };
 };

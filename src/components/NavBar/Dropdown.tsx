@@ -1,12 +1,13 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { StyledList } from './styles';
+import { useContext } from 'react';
+import { WeatherContext } from '@/lib/contexts/weatherContext';
 
 const Dropdown = () => {
-	const [cities, setCities] = useState<string[]>([]);
+	const { cities, setCities } = useContext(WeatherContext);
 
 	return (
 		<StyledList>
