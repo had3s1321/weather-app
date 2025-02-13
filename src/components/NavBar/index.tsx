@@ -1,9 +1,9 @@
 import Link from 'next/link';
+import Dropdown from '@/components/NavBar/Dropdown';
+import SearchBar from '@/components/NavBar/SearchBar';
 import ThemeToggler from '@/components/NavBar/ThemeToggler';
-import { StyledNavigation } from './styles';
-import SearchBar from './SearchBar';
-import Dropdown from './Dropdown';
-import CurrentLocation from './CurrentLocation';
+import CurrentLocation from '@/components/NavBar/CurrentLocation';
+import { StyledNavigation } from '@/components/NavBar/styles';
 
 const NavBar = () => {
 	return (

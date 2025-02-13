@@ -1,8 +1,8 @@
 import { Icon } from '@iconify/react';
-import { Card, Flex, Text } from '@/components/UI/globals';
 import { getHour } from '@/utils/convertTime';
 import { handleUnitType } from '@/utils/handleUnitType';
 import { ParsedHourlyForecast } from '@/utils/types/WeatherData';
+import { Card, Flex, Text } from '@/components/UI/globals';
 
 interface HourlyPanelProps {
 	hourlyForecast: ParsedHourlyForecast[];

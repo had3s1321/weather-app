@@ -1,11 +1,11 @@
-import { getWeatherData } from '@/actions/getWeatherData';
+import NavBar from '@/components/NavBar';
 import DailyForecastPanel from '@/components/cityComponents/DailyForecastPanel';
 import HourlyForecastPanel from '@/components/cityComponents/HourlyForecastPanel';
-import NavBar from '@/components/NavBar';
 import CurrentWeatherPanel from '@/components/UI/CurrentWeatherPanel';
 import DataPanel from '@/components/UI/DataPanel';
-import { Flex, Card } from '@/components/UI/globals/index';
+import { getWeatherData } from '@/actions/getWeatherData';
 import { fetchCityCoords } from '@/utils/fetchLocationData';
+import { Flex, Card } from '@/components/UI/globals/index';
 
 export default async function Page({
 	params

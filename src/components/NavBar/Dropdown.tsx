@@ -1,10 +1,10 @@
 'use client';
 
+import { useContext } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { StyledList } from './styles';
-import { useContext } from 'react';
-import { WeatherContext } from '@/lib/contexts/weatherContext';
+import { WeatherContext } from '@/data/contexts/weatherContext';
+import { StyledList } from '@/components/NavBar/styles';
 
 const Dropdown = () => {
 	const { cities, setCities } = useContext(WeatherContext);

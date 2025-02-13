@@ -1,7 +1,7 @@
 import DataPanelItem from '@/components/UI/DataPanel/DataPanelItem';
-import { Card, Flex, Text } from '@/components/UI/globals/index';
 import ModalToggler from '@/components/UI/DataPanel/ModalToggler';
 import { PanelData } from '@/utils/types/WeatherData';
+import { Card, Flex, Text } from '@/components/UI/globals/index';
 
 interface DataPanelProps {
 	title: string;

@@ -3,10 +3,10 @@
 import { useEffect, useContext } from 'react';
 import Link from 'next/link';
 import Cookies from 'js-cookie';
+import { WeatherContext } from '@/data/contexts/weatherContext';
 import { getCurrentCoords } from '@/utils/getCurrentCoords';
-import { encryptData } from '@/utils/textEncryption';
-import { WeatherContext } from '@/lib/contexts/weatherContext';
 import { fetchCityName } from '@/utils/fetchLocationData';
+import { encryptData } from '@/utils/textEncryption';
 
 const InfoCard = () => {
 	const { setCurrentLocation } = useContext(WeatherContext);

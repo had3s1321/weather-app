@@ -1,10 +1,10 @@
 'use client';
 
 import { useContext, useState } from 'react';
-import { StyledInput } from './styles';
-import { WeatherContext } from '@/lib/contexts/weatherContext';
+import { WeatherContext } from '@/data/contexts/weatherContext';
 import { capitalizeCityName } from '@/utils/capitalizeCityName';
 import { fetchCityCoords } from '@/utils/fetchLocationData';
+import { StyledInput } from '@/components/NavBar/styles';
 
 const SearchBar = () => {
 	const [value, setValue] = useState('');
