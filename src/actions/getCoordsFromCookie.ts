@@ -1,7 +1,7 @@
 'use server';
 
-import { decryptData } from '@/utils/textEncryption';
 import { cookies } from 'next/headers';
+import { decryptData } from '@/utils/textEncryption';
 
 export const getCoordsFromCookie = async () => {
 	const cookiesStore = await cookies();

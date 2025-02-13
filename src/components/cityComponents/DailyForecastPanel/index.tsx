@@ -1,8 +1,8 @@
 import { Icon } from '@iconify/react';
-import { Card, Flex, Text, Span } from '@/components/UI/globals';
 import { getDay } from '@/utils/convertTime';
 import { handleUnitType } from '@/utils/handleUnitType';
 import { ParsedDailyForecast } from '@/utils/types/WeatherData';
+import { Card, Flex, Text, Span } from '@/components/UI/globals';
 
 interface DailyForecastProps {
 	dailyForecast: ParsedDailyForecast[];

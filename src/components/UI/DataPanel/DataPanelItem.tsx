@@ -1,7 +1,7 @@
 import { Icon } from '@iconify/react';
-import { Flex, Text } from '@/components/UI/globals/index';
-import { handleUnitType } from '@/utils/handleUnitType';
 import { PanelData } from '@/utils/types/WeatherData';
+import { handleUnitType } from '@/utils/handleUnitType';
+import { Flex, Text } from '@/components/UI/globals/index';
 
 const DataPanelItem = ({ title, icon, value, valueType }: PanelData) => {
 	return (

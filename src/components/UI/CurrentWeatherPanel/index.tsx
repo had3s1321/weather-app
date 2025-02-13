@@ -2,10 +2,10 @@
 
 import { useContext } from 'react';
 import { Icon } from '@iconify/react';
-import { Card, Flex, Title, Text } from '@/components/UI/globals/index';
+import { WeatherContext } from '@/data/contexts/weatherContext';
 import { handleUnitType } from '@/utils/handleUnitType';
 import { Weather } from '@/utils/types/WeatherData';
-import { WeatherContext } from '@/lib/contexts/weatherContext';
+import { Card, Flex, Title, Text } from '@/components/UI/globals/index';
 
 interface CurrentWeatherPanelProps {
 	currentTemp: number;
