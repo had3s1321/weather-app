@@ -1,11 +1,11 @@
+import { getWeatherData } from '@/actions/getWeatherData';
 import DailyForecastPanel from '@/components/cityComponents/DailyForecastPanel';
 import HourlyForecastPanel from '@/components/cityComponents/HourlyForecastPanel';
 import NavBar from '@/components/NavBar';
 import CurrentWeatherPanel from '@/components/UI/CurrentWeatherPanel';
 import DataPanel from '@/components/UI/DataPanel';
 import { Flex, Card } from '@/components/UI/globals/index';
-import { mockData } from '@/lib/mockData';
-import { parseWeatherData } from '@/utils/parseWeatherData';
+import { fetchCityCoords } from '@/utils/fetchLocationData';
 
 export default async function Page({
 	params
@@ -13,13 +13,12 @@ export default async function Page({
 	params: Promise<{ cityId: string }>;
 }) {
 	const { cityId } = await params;
-	const data = parseWeatherData(mockData);
+	const coords = await fetchCityCoords(cityId);
+	const { lat, lon } = coords;
+	const data = await getWeatherData(lat, lon);
 	return (
 		<>
 			<NavBar />
-			{/* Temporary to get rid of linting errors */}
-			{!cityId && cityId}
-			{/* Temporary to get rid of linting errors */}
 			<Flex $justify='space-between' $gap='28px' $height='100%'>
 				<Card
 					$outer

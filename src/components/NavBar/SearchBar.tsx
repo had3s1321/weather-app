@@ -24,9 +24,10 @@ const SearchBar = () => {
 			)
 		)
 			throw new Error('City already included in the list!');
-		fetchCityCoords(value).then((response) =>
-			setCities([...cities, response.name])
-		);
+		fetchCityCoords(value).then((response) => {
+			if (cities.includes(response.name)) return;
+			setCities([...cities, response.name]);
+		});
 		setValue('');
 	};
 
