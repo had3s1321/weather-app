@@ -1,8 +1,6 @@
 'use client';
 
-import { useContext } from 'react';
 import { Icon } from '@iconify/react';
-import { WeatherContext } from '@/data/contexts/weatherContext';
 import { handleUnitType } from '@/utils/handleUnitType';
 import { Weather } from '@/utils/types/WeatherData';
 import { Card, Flex, Title, Text } from '@/components/UI/globals/index';
@@ -18,7 +16,7 @@ const CurrentWeatherPanel = ({
 	currentWeather: { main, description, icon },
 	padding
 }: CurrentWeatherPanelProps) => {
-	const { currentLocation } = useContext(WeatherContext);
+	const currentLocation = 'from props';
 
 	return (
 		<Card

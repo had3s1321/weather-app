@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import MainContainer from '@/components/UI/MainContainer/index';
-import Providers from '@/components/Providers/Providers';
+import StyledComponentsRegistry from '@/registry';
 
 export const metadata: Metadata = {
 	title: 'Weather App',
@@ -15,9 +15,9 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body>
-				<Providers>
+				<StyledComponentsRegistry>
 					<MainContainer>{children}</MainContainer>
-				</Providers>
+				</StyledComponentsRegistry>
 			</body>
 		</html>
 	);
