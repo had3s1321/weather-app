@@ -1,13 +1,12 @@
 'use client';
 
-import { useContext } from 'react';
+import useLocalStorage from '@/hooks/useLocalStorage';
 import Link from 'next/link';
 import Image from 'next/image';
-import { WeatherContext } from '@/data/contexts/weatherContext';
 import { StyledList } from '@/components/NavBar/styles';
 
 const Dropdown = () => {
-	const { cities, setCities } = useContext(WeatherContext);
+	const [cities, setCities] = useLocalStorage<string[]>('CITIES_STORAGE', []);
 
 	return (
 		<StyledList>
@@ -18,11 +17,7 @@ const Dropdown = () => {
 						<li key={city}>
 							<Link href={`/city/${city}`}>
 								<Image src='' alt='' /> {city}
-								<button
-									onClick={() =>
-										setCities((prev) => prev.filter((el) => el !== city))
-									}
-								></button>
+								<button onClick={() => setCities(['Paris, London'])}></button>
 							</Link>
 						</li>
 					))}

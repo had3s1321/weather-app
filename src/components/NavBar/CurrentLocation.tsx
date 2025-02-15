@@ -1,11 +1,9 @@
 'use client';
 
-import { useContext } from 'react';
-import { WeatherContext } from '@/data/contexts/weatherContext';
 import { Text } from '@/components/UI/globals/index';
 
 const CurrentLocation = () => {
-	const { currentLocation } = useContext(WeatherContext);
+	const currentLocation = 'London';
 
 	return (
 		<Text>

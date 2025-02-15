@@ -1,14 +1,14 @@
 'use client';
 
-import { useContext, useState } from 'react';
-import { WeatherContext } from '@/data/contexts/weatherContext';
+import { useState } from 'react';
+import useLocalStorage from '@/hooks/useLocalStorage';
 import { capitalizeCityName } from '@/utils/capitalizeCityName';
 import { fetchCityCoords } from '@/utils/fetchLocationData';
 import { StyledInput } from '@/components/NavBar/styles';
 
 const SearchBar = () => {
 	const [value, setValue] = useState('');
-	const { cities, setCities } = useContext(WeatherContext);
+	const [cities, setCities] = useLocalStorage<string[]>('CITIES_STORAGE', []);
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
 		setValue(e.target.value);
