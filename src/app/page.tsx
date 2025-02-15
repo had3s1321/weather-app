@@ -9,7 +9,7 @@ export default function Home() {
 	return (
 		<>
 			<NavBar />
-			<DataFetcher>
+			<DataFetcher path='Home'>
 				{(data) => (
 					<Flex $gap='24px' $height='100%'>
 						<Flex $gap='24px' $column $width='60%' $height='100%'>
@@ -29,6 +29,7 @@ export default function Home() {
 						<Card $width='40%'>
 							<Flex $column $justify='space-between' $gap='24px' $height='100%'>
 								<CurrentWeatherPanel
+									currentLocation={data.currentLocation || 'N/A'}
 									currentTemp={data.currentTemp}
 									currentWeather={data.currentWeather}
 								/>

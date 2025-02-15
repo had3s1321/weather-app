@@ -6,18 +6,18 @@ import { Weather } from '@/utils/types/WeatherData';
 import { Card, Flex, Title, Text } from '@/components/UI/globals/index';
 
 interface CurrentWeatherPanelProps {
+	currentLocation: string;
 	currentTemp: number;
 	currentWeather: Weather;
 	padding?: boolean;
 }
 
 const CurrentWeatherPanel = ({
+	currentLocation,
 	currentTemp,
 	currentWeather: { main, description, icon },
 	padding
 }: CurrentWeatherPanelProps) => {
-	const currentLocation = 'from props';
-
 	return (
 		<Card
 			$borderless
