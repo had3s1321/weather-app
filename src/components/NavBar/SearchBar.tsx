@@ -1,34 +1,23 @@
 'use client';
 
 import { useState } from 'react';
-import useLocalStorage from '@/hooks/useLocalStorage';
-import { capitalizeCityName } from '@/utils/capitalizeCityName';
-import { fetchCityCoords } from '@/utils/fetchLocationData';
 import { StyledInput } from '@/components/NavBar/styles';
 
-const SearchBar = () => {
-	const [value, setValue] = useState('');
-	const [cities, setCities] = useLocalStorage<string[]>('CITIES_STORAGE', []);
+const SearchBar = ({
+	handleSearch
+}: {
+	// eslint-disable-next-line no-unused-vars
+	handleSearch: (value: string) => void;
+}) => {
+	const [inputValue, setInputValue] = useState('');
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-		setValue(e.target.value);
+		setInputValue(e.target.value);
 
-	const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		if (!value) return;
-		if (
-			cities.some(
-				(el) =>
-					`${el[0].toLocaleUpperCase()}${el.substring(1, el.length - 4)}` ===
-					capitalizeCityName(value)
-			)
-		)
-			throw new Error('City already included in the list!');
-		fetchCityCoords(value).then((response) => {
-			if (cities.includes(response.name)) return;
-			setCities([...cities, response.name]);
-		});
-		setValue('');
+		handleSearch(inputValue);
+		setInputValue('');
 	};
 
 	return (
@@ -36,7 +25,7 @@ const SearchBar = () => {
 			<StyledInput
 				$width='200px'
 				onChange={handleChange}
-				value={value}
+				value={inputValue}
 				type='text'
 				placeholder='Search a city...'
 			/>

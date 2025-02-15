@@ -1,9 +1,10 @@
-'use client';
-
+import { getCoordsFromCookie } from '@/actions/getCoordsFromCookie';
 import { Text } from '@/components/UI/globals/index';
+import { fetchCityName } from '@/utils/fetchLocationData';
 
-const CurrentLocation = () => {
-	const currentLocation = 'London';
+const CurrentLocation = async () => {
+	const { lat, lon } = await getCoordsFromCookie();
+	const currentLocation = await fetchCityName({ lat, lon });
 
 	return (
 		<Text>

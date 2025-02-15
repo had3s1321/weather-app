@@ -1,23 +1,23 @@
 'use client';
 
-import { Icon } from '@iconify/react';
+import CustomIcon from '../CustomIcon/CustomIcon';
 import { handleUnitType } from '@/utils/handleUnitType';
 import { Weather } from '@/utils/types/WeatherData';
 import { Card, Flex, Title, Text } from '@/components/UI/globals/index';
 
 interface CurrentWeatherPanelProps {
+	currentLocation: string;
 	currentTemp: number;
 	currentWeather: Weather;
 	padding?: boolean;
 }
 
 const CurrentWeatherPanel = ({
+	currentLocation,
 	currentTemp,
 	currentWeather: { main, description, icon },
 	padding
 }: CurrentWeatherPanelProps) => {
-	const currentLocation = 'from props';
-
 	return (
 		<Card
 			$borderless
@@ -38,7 +38,7 @@ const CurrentWeatherPanel = ({
 					</Text>
 				</Flex>
 				<Flex $justify='center' $align='center'>
-					<Icon icon={icon} width='254' height='254' />
+					<CustomIcon icon={icon} width='254px' height='254px' />
 				</Flex>
 			</Flex>
 		</Card>

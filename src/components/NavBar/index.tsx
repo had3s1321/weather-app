@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import Dropdown from '@/components/NavBar/Dropdown';
-import SearchBar from '@/components/NavBar/SearchBar';
+import CityMenu from '@/components/NavBar/CityMenu';
 import CurrentLocation from '@/components/NavBar/CurrentLocation';
 import { StyledNavigation } from '@/components/NavBar/styles';
 
@@ -10,9 +9,8 @@ const NavBar = () => {
 			<Link href='/' style={{ color: 'black' }}>
 				Home
 			</Link>
-			<SearchBar />
 			<CurrentLocation />
-			<Dropdown />
+			<CityMenu />
 		</StyledNavigation>
 	);
 };

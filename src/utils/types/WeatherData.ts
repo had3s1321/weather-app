@@ -92,6 +92,7 @@ export interface ParsedWeatherData {
 	weatherOverview: string;
 	homePanelData: PanelItem[];
 	cityPanelData: PanelItem[];
+	currentLocation?: string;
 }
 
 export interface PanelData {

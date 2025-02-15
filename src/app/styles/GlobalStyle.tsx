@@ -5,9 +5,9 @@ import { spacing } from '@/app/styles/variables';
 
 const GlobalStyle = createGlobalStyle`
   :root {
-    --clr-light: ${(props) => props.theme.light};
-    --clr-dark: ${(props) => props.theme.dark};
-    --clr-bg: ${(props) => props.theme.bg};
+    --clr-light: '#FFFFFF';
+    --clr-dark: '#000000';
+    --clr-bg: '#F5F5F5';
 
     --gap-m: ${spacing.medium};
   }
