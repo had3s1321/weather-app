@@ -1,4 +1,4 @@
-import { Icon } from '@iconify/react';
+import CustomIcon from '@/components/UI/CustomIcon/CustomIcon';
 import { getHour } from '@/utils/convertTime';
 import { handleUnitType } from '@/utils/handleUnitType';
 import { ParsedHourlyForecast } from '@/utils/types/WeatherData';
@@ -21,7 +21,7 @@ const HourlyForecastPanel = ({ hourlyForecast }: HourlyPanelProps) => {
 							<Text $size='20px' $weight='500' $align='center'>
 								{getHour(el.time)}
 							</Text>
-							<Icon icon={el.weather.icon} width='64' height='64' />
+							<CustomIcon icon={el.weather.icon} width='64px' height='64px' />
 							<Text $size='24px' $weight='700' $align='center'>
 								{handleUnitType(el.temp, 'temperature')}
 							</Text>

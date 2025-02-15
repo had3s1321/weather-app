@@ -1,4 +1,4 @@
-import { Icon } from '@iconify/react';
+import CustomIcon from '@/components/UI/CustomIcon/CustomIcon';
 import { getDay } from '@/utils/convertTime';
 import { handleUnitType } from '@/utils/handleUnitType';
 import { ParsedDailyForecast } from '@/utils/types/WeatherData';
@@ -24,7 +24,7 @@ const DailyForecastPanel = ({ dailyForecast }: DailyForecastProps) => {
 						>
 							<Text $width='25%'>{getDay(el.time)}</Text>
 							<Flex $justify='space-evenly' $align='center' $width='50%'>
-								<Icon icon={el.weather.icon} width='64' height='64' />
+								<CustomIcon icon={el.weather.icon} width='64px' height='64px' />
 								<Text $weight='700'>{el.weather.main}</Text>
 							</Flex>
 							<Text $align='end' $width='25%'>
