@@ -3,7 +3,7 @@
 import useLocalStorage from '@/hooks/useLocalStorage';
 import Dropdown from '@/components/NavBar/Dropdown';
 import SearchBar from '@/components/NavBar/SearchBar';
-import { fetchCityCoords } from '@/utils/fetchLocationData';
+import { fetchCityCoords, fetchCityName } from '@/utils/fetchLocationData';
 import { capitalizeCityName } from '@/utils/capitalizeCityName';
 
 const CityMenu = () => {
@@ -19,10 +19,12 @@ const CityMenu = () => {
 			)
 		)
 			throw new Error('City already included in the list!');
-		fetchCityCoords(value).then((response) => {
-			if (cities.includes(response.name)) return;
-			setCities([...cities, response.name]);
-		});
+		fetchCityCoords(value)
+			.then((response) => fetchCityName(response))
+			.then((response) => {
+				if (cities.includes(response)) return;
+				setCities([...cities, response]);
+			});
 	};
 
 	return (

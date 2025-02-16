@@ -1,16 +1,39 @@
 'use client';
 
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 
-export default function useLocalStorage<T>(key: string, initialValue: T) {
-	const storedValue = window.localStorage.getItem(key);
-	const item = storedValue ? JSON.parse(storedValue) : initialValue;
-	const [state, setState] = useState<T>(item);
+export default function useLocalStorage<T>(
+	key: string,
+	defaultValue: T
+): [T, Dispatch<SetStateAction<T>>] {
+	const isMounted = useRef(false);
+	const [value, setValue] = useState<T>(defaultValue);
 
-	const updateState = (value: T) => {
-		window.localStorage.setItem(key, JSON.stringify(value));
-		setState(value);
-	};
+	useEffect(() => {
+		try {
+			const item = window.localStorage.getItem(key);
+			if (item) {
+				setValue(JSON.parse(item));
+			}
+		} catch (e) {
+			if (typeof e === 'string') {
+				throw new Error(e);
+			} else if (e instanceof Error) {
+				throw new Error(e.message);
+			}
+		}
+		return () => {
+			isMounted.current = false;
+		};
+	}, [key]);
 
-	return [state, updateState] as const;
+	useEffect(() => {
+		if (isMounted.current) {
+			window.localStorage.setItem(key, JSON.stringify(value));
+		} else {
+			isMounted.current = true;
+		}
+	}, [key, value]);
+
+	return [value, setValue];
 }
