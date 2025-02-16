@@ -23,7 +23,8 @@ const InfoCard = () => {
 		<div>
 			<p>
 				Please accept the request to use location and press
-				&ldquo;Continue&ldquo;
+				&ldquo;Continue&ldquo;. If left click doesn&lsquo;t work, press right
+				click on the button and click &ldquo;Open in a new tab&ldquo;
 			</p>
 			<Link href='/'>Continue</Link>
 		</div>
